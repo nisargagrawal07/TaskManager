@@ -1,5 +1,6 @@
 package com.example.taskmanager.security;
 import com.example.taskmanager.repository.UserRepository;
+import io.jsonwebtoken.JwtException;
 import jakarta.servlet.*;
 import jakarta.servlet.http.*;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

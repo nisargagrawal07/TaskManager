@@ -1,8 +1,23 @@
 {
-  "name": "Task Manager Java 21 + PostgreSQL",
-  "image": "mcr.microsoft.com/devcontainers/java:1-21-bookworm",
-  "features": {"ghcr.io/devcontainers/features/docker-in-docker:2": {}},
+  "name": "TaskManager Java",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/java:1": {
+      "version": "21",
+      "distribution": "temurin"
+    },
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {}
+  },
+  "privileged": true,
   "forwardPorts": [8080],
-  "portsAttributes": {"8080": {"label": "Task Manager API", "onAutoForward": "notify"}},
-  "postCreateCommand": "java -version && mvn -version"
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "vscjava.vscode-java-pack",
+        "vmware.vscode-spring-boot"
+      ]
+    }
+  }
 }
